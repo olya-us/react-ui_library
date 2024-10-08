@@ -27,5 +27,6 @@ export const OpenInNewTab: Story = {
     target: '_blank',
     rel: 'noopener noreferrer',
     children: 'Open in New Tab',
+    underline: true,
   },
 };

@@ -100,7 +100,40 @@ input.disabled {
     text-decoration: none;
     transition: all .3s ease;
 }
+
+.link.underline{
+    text-decoration: underline;
+}
   
 .link:hover {
-    text-decoration: underline;
+    color: #155595;
+}
+
+/* TAB */
+
+.tabs {
+    width: 100%;
+}
+  
+.tab-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+  
+.tab-item {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+  
+.tab-item.active {
+    border-bottom: 2px solid var(--primary-color); 
+    color: var(--primary-color);
+}
+  
+.tab-content {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px 0;
 }

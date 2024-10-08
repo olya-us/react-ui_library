@@ -3,6 +3,7 @@ export interface LinkProps {
   target?: '_blank' | '_self' | '_parent' | '_top';
   rel?: string;
   children: React.ReactNode;
+  underline?: boolean;
 }
 
 export const Link: React.FC<LinkProps> = ({
@@ -10,9 +11,10 @@ export const Link: React.FC<LinkProps> = ({
   target = '_self',
   rel,
   children,
+  underline = false,
 }) => {
   return (
-    <a className="link" href={href} target={target} rel={rel}>
+    <a className={`link ${underline ? 'underline' : ''}`} href={href} target={target} rel={rel}>
       {children}
     </a>
   );
