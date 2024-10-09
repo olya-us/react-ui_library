@@ -12,8 +12,6 @@ const meta: Meta<typeof Tabs> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
 const tabs = [
   { label: 'Tab 1', content: <div>Content for Tab 1</div> },
   { label: 'Tab 2', content: <div>Content for Tab 2</div> },
