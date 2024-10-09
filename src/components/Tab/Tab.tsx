@@ -7,9 +7,10 @@ interface Tab {
 
 interface TabsProps {
   tabs: Tab[];
+  orientation?: 'horizontal' | 'vertical';
 }
 
-const Tabs: React.FC<TabsProps> = ({ tabs }) => {
+const Tabs: React.FC<TabsProps> = ({ tabs, orientation = 'horizontal' }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleTabClick = (index: number) => {
@@ -17,8 +18,8 @@ const Tabs: React.FC<TabsProps> = ({ tabs }) => {
   };
 
   return (
-    <div className="tabs">
-      <ul className="tab-list">
+    <div className={`tabs ${orientation}`}>
+      <ul className={`tab-list ${orientation}`}>
         {tabs.map((tab, index) => (
           <li
             key={index}

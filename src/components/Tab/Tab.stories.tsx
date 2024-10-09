@@ -20,8 +20,16 @@ const tabs = [
   { label: 'Tab 3', content: <div>Content for Tab 3</div> },
 ];
 
-export const Default: Story = {
-  args: {
-    tabs,
-  },
+export const Horizontal: StoryObj<typeof Tabs> = {
+    args: {
+      tabs,
+      orientation: 'horizontal',
+    },
+};
+  
+export const Vertical: StoryObj<typeof Tabs> = {
+    args: {
+      tabs,
+      orientation: 'vertical',
+    },
 };
