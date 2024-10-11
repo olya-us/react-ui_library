@@ -1,5 +1,4 @@
 import '../styles/global.css';
-import './Button/Button.css';
 
 export { Button } from './Button/Button';
 export { Input } from './Input/Input';
