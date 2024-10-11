@@ -1,3 +1,4 @@
+
 # 🌟 Simple React Component Library
 
 A library of easy-to-use React components designed to streamline your development process. This library includes customizable components like Buttons, Accordions, and Inputs, all with consistent styles and structure.
@@ -26,7 +27,7 @@ function App() {
 ```
 
 ## 📖 Documentation & Examples
-Explore all components with live examples in the Storybook: [https://github.com/olya-us/react-ui_library](https://github.com/olya-us/react-ui_library)
+Explore all components with live examples in the Storybook: [https://olya-us.github.io/react-ui_library/?path=/docs/components-accordion--docs](https://olya-us.github.io/react-ui_library/?path=/docs/components-accordion--docs)
 
 ## 🛠️ Components Included
 - **Button**: Primary and secondary styles with responsive variants.
