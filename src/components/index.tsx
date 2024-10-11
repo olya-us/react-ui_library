@@ -1,7 +1,8 @@
-import '../styles/global.css'
+import '../styles/global.css';
+import './Button/Button.css';
 
-export * from './Button/Button'
-export * from './Input/Input'
-export * from './Link/Link'
-export * from './Tab/Tab'
-export * from './Accordion/Accordion'
+export { Button } from './Button/Button';
+export { Input } from './Input/Input';
+export { Link } from './Link/Link';
+export { Tabs } from './Tab/Tab';
+export { Accordion } from './Accordion/Accordion';

@@ -10,7 +10,7 @@ interface TabsProps {
   orientation?: 'horizontal' | 'vertical';
 }
 
-const Tabs: React.FC<TabsProps> = ({ tabs, orientation = 'horizontal' }) => {
+export const Tabs: React.FC<TabsProps> = ({ tabs, orientation = 'horizontal' }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleTabClick = (index: number) => {
@@ -36,5 +36,3 @@ const Tabs: React.FC<TabsProps> = ({ tabs, orientation = 'horizontal' }) => {
     </div>
   );
 };
-
-export default Tabs;

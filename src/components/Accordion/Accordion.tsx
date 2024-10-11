@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 interface AccordionItem {
   title: string;
@@ -10,7 +10,7 @@ interface AccordionProps {
   allowMultiple?: boolean; 
 }
 
-const Accordion: React.FC<AccordionProps> = ({ items, allowMultiple = false }) => {
+export const Accordion: React.FC<AccordionProps> = ({ items, allowMultiple = false }) => {
   const [openIndexes, setOpenIndexes] = useState<number[]>([]);
 
   const handleToggle = (index: number) => {
@@ -41,5 +41,3 @@ const Accordion: React.FC<AccordionProps> = ({ items, allowMultiple = false }) =
     </div>
   );
 };
-
-export default Accordion;

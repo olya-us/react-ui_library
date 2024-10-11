@@ -1,20 +1,23 @@
 {
-  "name": "react-ui_library",
-  "version": "0.0.0",
+  "name": "@olya_us/ui_library",
+  "version": "1.8.6",
   "description": "A simple ui react components",
   "author": "Us Olya",
   "type": "module",
   "files": [
     "dist"
   ],
-  "main": "dist/react-ui_library-umd.cjs",
-  "module": "dist/react-ui_library.js",
+  "main": "./dist/react-ui_library.umd.cjs",
+  "module": "./dist/react-ui_library.js",
+  "types": "./dist/react-ui_library.d.ts",
   "exports": {
     ".": {
       "import": "./dist/react-ui_library.js",
-      "require": "./dist/react-ui_library-umd.cjs"
-    }
+      "require": "./dist/react-ui_library.umd.cjs"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
+  "sideEffects": false,
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -26,7 +29,8 @@
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "vite-plugin-css-injected-by-js": "^3.5.2"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.9.0",
