@@ -27,7 +27,7 @@ function App() {
 ```
 
 ## 📖 Documentation & Examples
-Explore all components with live examples in the Storybook: [https://olya-us.github.io/react-ui_library/?path=/docs/components-accordion--docs](https://olya-us.github.io/react-ui_library/?path=/docs)
+Explore all components with live examples in the Storybook: [https://olya-us.github.io/react-ui_library/?path=/docs](https://olya-us.github.io/react-ui_library/?path=/docs)
 
 ## 🛠️ Components Included
 - **Button**: Primary and secondary styles with responsive variants.
