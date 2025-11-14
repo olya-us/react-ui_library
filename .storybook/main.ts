@@ -17,6 +17,15 @@ const config: StorybookConfig = {
     options: {},
   },
   viteFinal: async (config, { configType }) => {
+    // Remove `vite-plugin-dts` for Storybook builds to avoid API Extractor
+    // errors and unnecessary type generation in the Storybook pipeline.
+    if (config.plugins) {
+      const plugins = config.plugins as any[]
+      config.plugins = plugins
+        .flat()
+        .filter((plugin) => plugin?.name !== 'vite:dts')
+    }
+
     config.plugins?.push(
       tsconfigPaths({
         projects: [path.resolve(path.dirname(__dirname), 'tsconfig.json')],
