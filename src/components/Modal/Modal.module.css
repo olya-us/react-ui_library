@@ -1,0 +1,37 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: linear-gradient(
+    to bottom,
+    var(--color-background),
+    rgba(255, 255, 255, 0.95)
+  );
+  padding: var(--spacing-xl);
+  border-radius: var(--spacing-xs);
+  box-shadow: var(--shadow-large);
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+}
+
+.close {
+  position: absolute;
+  top: var(--spacing-xs);
+  right: var(--spacing-xs);
+  background: none;
+  border: none;
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+}

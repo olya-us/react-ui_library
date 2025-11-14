@@ -1,27 +1,42 @@
-export interface ButtonProps {
-  primary?: boolean;
-  disabled?: boolean;
-  size?: 'small' | 'medium' | 'large';
-  label: string;
-  onClick?: () => void;
-};
+import { forwardRef, ButtonHTMLAttributes } from 'react'
+import styles from './Button.module.css'
 
-export const Button = ({
-  primary = false,
-  disabled = false,
-  size = 'medium',
-  label,
-  ...props
-}: ButtonProps) => {
-  const mode = primary ? 'primary' : 'secondary';
-  const disabledBtn = disabled ? 'disabled' : '';
-  return (
-    <button
-      type="button"
-      className={[`button--${size}`, mode, disabledBtn].join(' ')}
-      {...props}
-    >
-      {label}
-    </button>
-  );
-};
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'text'
+  size?: 'small' | 'medium' | 'large'
+  disabled?: boolean
+}
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      variant = 'primary',
+      size = 'medium',
+      disabled = false,
+      children,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+    return (
+      <button
+        ref={ref}
+        className={[
+          styles.button,
+          styles[variant],
+          styles[size],
+          disabled ? styles.disabled : '',
+          className,
+        ].join(' ')}
+        disabled={disabled}
+        aria-disabled={disabled}
+        {...props}
+      >
+        {children}
+      </button>
+    )
+  }
+)
+
+Button.displayName = 'Button'

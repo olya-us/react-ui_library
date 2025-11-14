@@ -1,0 +1,22 @@
+.link {
+  color: var(--color-primary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: var(--color-accent);
+}
+
+.underline-none {
+  text-decoration: none;
+}
+
+.underline-hover:hover {
+  text-decoration: underline;
+}
+
+.underline-always {
+  text-decoration: underline;
+}

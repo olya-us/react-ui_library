@@ -1,21 +1,26 @@
-export interface LinkProps {
-  href: string;
-  target?: '_blank' | '_self' | '_parent' | '_top';
-  rel?: string;
-  children: React.ReactNode;
-  underline?: boolean;
+import { forwardRef, AnchorHTMLAttributes } from 'react'
+import styles from './Link.module.css'
+
+export interface LinkProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  underline?: 'none' | 'hover' | 'always'
 }
 
-export const Link: React.FC<LinkProps> = ({
-  href,
-  target = '_self',
-  rel,
-  children,
-  underline = false,
-}) => {
-  return (
-    <a className={`link ${underline ? 'underline' : ''}`} href={href} target={target} rel={rel}>
-      {children}
-    </a>
-  );
-};
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
+  ({ underline = 'hover', className, children, ...props }, ref) => {
+    return (
+      <a
+        ref={ref}
+        className={[
+          styles.link,
+          styles[`underline-${underline}`],
+          className,
+        ].join(' ')}
+        {...props}
+      >
+        {children}
+      </a>
+    )
+  }
+)
+
+Link.displayName = 'Link'

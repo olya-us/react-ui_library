@@ -1,0 +1,26 @@
+.card {
+  background-color: var(--color-background);
+  border-radius: var(--spacing-xs);
+  padding: var(--spacing-m);
+  box-shadow: var(--shadow-small);
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-large);
+}
+
+.outlined {
+  border: 1px solid var(--color-border);
+  box-shadow: none;
+}
+
+.elevated {
+  box-shadow: var(--shadow-medium);
+}
+
+.filled {
+  background: var(--color-primary-gradient);
+  color: white;
+  box-shadow: none;
+}

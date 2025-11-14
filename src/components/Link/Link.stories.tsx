@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react';
-import {Link} from './Link';
+import { Meta, StoryObj } from '@storybook/react'
+import { Link } from './Link'
 
 const meta: Meta<typeof Link> = {
   title: 'Components/Link',
@@ -8,18 +8,34 @@ const meta: Meta<typeof Link> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
     href: 'https://example.com',
     children: 'Visit Example',
   },
-};
+}
+
+export const UnderlineAlways: Story = {
+  args: {
+    href: 'https://example.com',
+    underline: 'always',
+    children: 'Underlined Link',
+  },
+}
+
+export const UnderlineNone: Story = {
+  args: {
+    href: 'https://example.com',
+    underline: 'none',
+    children: 'No Underline',
+  },
+}
 
 export const OpenInNewTab: Story = {
   args: {
@@ -27,6 +43,5 @@ export const OpenInNewTab: Story = {
     target: '_blank',
     rel: 'noopener noreferrer',
     children: 'Open in New Tab',
-    underline: true,
   },
-};
+}

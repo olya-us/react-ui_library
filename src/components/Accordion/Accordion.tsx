@@ -1,43 +1,54 @@
-import { useState } from 'react';
+import { useState } from 'react'
+import styles from './Accordion.module.css'
 
 interface AccordionItem {
-  title: string;
-  content: React.ReactNode;
+  title: string
+  content: React.ReactNode
 }
 
 interface AccordionProps {
-  items: AccordionItem[];
-  allowMultiple?: boolean; 
+  items: AccordionItem[]
+  allowMultiple?: boolean
 }
 
-export const Accordion: React.FC<AccordionProps> = ({ items, allowMultiple = false }) => {
-  const [openIndexes, setOpenIndexes] = useState<number[]>([]);
+export const Accordion = ({ items, allowMultiple = false }: AccordionProps) => {
+  const [openIndexes, setOpenIndexes] = useState<number[]>([])
 
   const handleToggle = (index: number) => {
-    if (allowMultiple) {
-      setOpenIndexes((prev) =>
-        prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
-      );
-    } else {
-      setOpenIndexes((prev) => (prev.includes(index) ? [] : [index]));
-    }
-  };
+    setOpenIndexes((prev) => {
+      if (prev.includes(index)) return prev.filter((i) => i !== index)
+      return allowMultiple ? [...prev, index] : [index]
+    })
+  }
 
   return (
-    <div className="accordion">
-        {items.map((item, index) => (
-            <div key={index} className="accordion-item">
-                <div
-                    className="accordion-title"
-                    onClick={() => handleToggle(index)}
-                >
-                    {item.title}
-                </div>
-                {openIndexes.includes(index) && (
-                    <div className="accordion-content">{item.content}</div>
-                )}
-            </div>
-        ))}
+    <div className={styles.accordion}>
+      {items.map((item, index) => {
+        const isOpen = openIndexes.includes(index)
+        return (
+          <div key={index} className={styles.item}>
+            <button
+              className={styles.title}
+              onClick={() => handleToggle(index)}
+              aria-expanded={isOpen}
+              aria-controls={`content-${index}`}
+              id={`title-${index}`}
+            >
+              {item.title}
+            </button>
+            {isOpen && (
+              <div
+                id={`content-${index}`}
+                role="region"
+                aria-labelledby={`title-${index}`}
+                className={styles.content}
+              >
+                {item.content}
+              </div>
+            )}
+          </div>
+        )
+      })}
     </div>
-  );
-};
+  )
+}

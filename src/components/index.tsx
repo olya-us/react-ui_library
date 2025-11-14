@@ -1,7 +1,9 @@
-import '../styles/global.css';
-
-export { Button } from './Button/Button';
-export { Input } from './Input/Input';
-export { Link } from './Link/Link';
-export { Tabs } from './Tab/Tab';
-export { Accordion } from './Accordion/Accordion';
+export { Card } from './Card/Card';
+export { Loader } from './Loader/Loader';
+export { Badge } from './Badge/Badge';
+export { Modal } from './Modal/Modal';
+export { Tooltip } from './Tooltip/Tooltip';
+export { Dropdown } from './Dropdown/Dropdown';
+export { Snackbar } from './Snackbar/Snackbar';
+export { Grid } from './Grid/Grid';
+export { Flex } from './Flex/Flex';

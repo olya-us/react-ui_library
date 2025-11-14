@@ -1,4 +1,6 @@
+// Update to use styles, add ARIA for tabs.
 import { useState } from 'react';
+import styles from './Tab.module.css';
 
 interface Tab {
   label: string;
@@ -10,27 +12,32 @@ interface TabsProps {
   orientation?: 'horizontal' | 'vertical';
 }
 
-export const Tabs: React.FC<TabsProps> = ({ tabs, orientation = 'horizontal' }) => {
+export const Tabs = ({ tabs, orientation = 'horizontal' }: TabsProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const handleTabClick = (index: number) => {
-    setActiveIndex(index);
-  };
-
   return (
-    <div className={`tabs ${orientation}`}>
-      <ul className={`tab-list ${orientation}`}>
+    <div className={[styles.tabs, styles[orientation]].join(' ')}>
+      <div role="tablist" className={styles.tabList}>
         {tabs.map((tab, index) => (
-          <li
+          <button
             key={index}
-            className={`tab-item ${index === activeIndex ? 'active' : ''}`}
-            onClick={() => handleTabClick(index)}
+            role="tab"
+            aria-selected={index === activeIndex}
+            aria-controls={`panel-${index}`}
+            id={`tab-${index}`}
+            className={[styles.tabItem, index === activeIndex ? styles.active : ''].join(' ')}
+            onClick={() => setActiveIndex(index)}
           >
             {tab.label}
-          </li>
+          </button>
         ))}
-      </ul>
-      <div className="tab-content">
+      </div>
+      <div
+        id={`panel-${activeIndex}`}
+        role="tabpanel"
+        aria-labelledby={`tab-${activeIndex}`}
+        className={styles.tabContent}
+      >
         {tabs[activeIndex].content}
       </div>
     </div>

@@ -8,6 +8,11 @@ const meta: Meta<typeof Button> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
+  argTypes: {
+    variant: { control: 'select', options: ['primary', 'secondary', 'text'] },
+    size: { control: 'select', options: ['small', 'medium', 'large'] },
+    disabled: { control: 'boolean' },
+  },
 }
 
 export default meta
@@ -16,23 +21,29 @@ type Story = StoryObj<typeof meta>
 
 export const Primary: Story = {
   args: {
-    primary: true,
-    label: 'Button',
-    disabled: false,
+    variant: 'primary',
+    children: 'Primary Button',
   },
 }
 
 export const Secondary: Story = {
   args: {
-    label: 'Button',
-    disabled: false,
+    variant: 'secondary',
+    children: 'Secondary Button',
+  },
+}
+
+export const Text: Story = {
+  args: {
+    variant: 'text',
+    children: 'Text Button',
   },
 }
 
 export const Disabled: Story = {
   args: {
-    primary: true,
-    label: 'Button',
+    variant: 'primary',
+    children: 'Disabled Button',
     disabled: true,
   },
 }

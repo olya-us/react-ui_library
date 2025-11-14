@@ -1,0 +1,33 @@
+.snackbar {
+  position: fixed;
+  bottom: var(--spacing-l);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-text);
+  color: var(--color-background);
+  padding: var(--spacing-m);
+  border-radius: var(--spacing-xxs);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-m);
+  z-index: 1000;
+}
+
+.info {
+  background: var(--color-info-gradient);
+}
+
+.success {
+  background: var(--color-success-gradient);
+}
+
+.error {
+  background: var(--color-error-gradient);
+}
+
+.close {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { action } from '@storybook/addon-actions'; 
-import { Input } from './Input';
+import type { Meta, StoryObj } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+import { Input } from './Input'
 
 const meta: Meta<typeof Input> = {
   title: 'Components/Input',
@@ -9,32 +9,43 @@ const meta: Meta<typeof Input> = {
     layout: 'centered',
   },
   tags: ['autodocs'],
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof meta>
 
-export const Text: Story = {
+export const Default: Story = {
   args: {
-    type: 'text',
-    placeholder: 'Enter text',
-    onChange: action('changed'), 
+    label: 'Username',
+    placeholder: 'Enter username',
+    onChange: action('changed'),
   },
-};
+}
 
-export const Password: Story = {
+export const WithHelper: Story = {
   args: {
+    label: 'Email',
+    placeholder: 'Enter email',
+    helperText: "We'll never share your email.",
+    onChange: action('changed'),
+  },
+}
+
+export const WithError: Story = {
+  args: {
+    label: 'Password',
     type: 'password',
     placeholder: 'Enter password',
-    onChange: action('changed'), 
+    error: 'Invalid password',
+    onChange: action('changed'),
   },
-};
+}
 
 export const Disabled: Story = {
   args: {
-    type: 'text',
-    placeholder: 'Disabled input',
+    label: 'Disabled Input',
+    placeholder: 'Cannot edit',
     disabled: true,
   },
-};
+}
