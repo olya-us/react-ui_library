@@ -1,0 +1,11 @@
+import{j as t}from"./jsx-runtime-j_jdvEMj.js";import{r as h}from"./index-B-o1Wr-g.js";import"./_commonjsHelpers-Cpj98o6Y.js";const y="_tabs_ieyj0_1",T="_horizontal_ieyj0_6",z="_vertical_ieyj0_10",f="_tabList_ieyj0_14",x="_tabItem_ieyj0_27",C="_active_ieyj0_39",g="_tabContent_ieyj0_49",e={tabs:y,horizontal:T,vertical:z,tabList:f,tabItem:x,active:C,tabContent:g},p=({tabs:s,orientation:u="horizontal"})=>{const[o,v]=h.useState(0);return t.jsxs("div",{className:[e.tabs,e[u]].join(" "),children:[t.jsx("div",{role:"tablist",className:e.tabList,children:s.map((j,a)=>t.jsx("button",{role:"tab","aria-selected":a===o,"aria-controls":`panel-${a}`,id:`tab-${a}`,className:[e.tabItem,a===o?e.active:""].join(" "),onClick:()=>v(a),children:j.label},a))}),t.jsx("div",{id:`panel-${o}`,role:"tabpanel","aria-labelledby":`tab-${o}`,className:e.tabContent,children:s[o].content})]})};p.__docgenInfo={description:"",methods:[],displayName:"Tabs",props:{tabs:{required:!0,tsType:{name:"Array",elements:[{name:"Tab"}],raw:"Tab[]"},description:""},orientation:{required:!1,tsType:{name:"union",raw:"'horizontal' | 'vertical'",elements:[{name:"literal",value:"'horizontal'"},{name:"literal",value:"'vertical'"}]},description:"",defaultValue:{value:"'horizontal'",computed:!1}}}};const L={title:"Components/Tabs",component:p,parameters:{layout:"centered"},tags:["autodocs"]},_=[{label:"Tab 1",content:t.jsx("div",{children:"Content for Tab 1"})},{label:"Tab 2",content:t.jsx("div",{children:"Content for Tab 2"})},{label:"Tab 3",content:t.jsx("div",{children:"Content for Tab 3"})}],n={args:{tabs:_,orientation:"horizontal"}},r={args:{tabs:_,orientation:"vertical"}};var i,l,c;n.parameters={...n.parameters,docs:{...(i=n.parameters)==null?void 0:i.docs,source:{originalSource:`{
+  args: {
+    tabs,
+    orientation: 'horizontal'
+  }
+}`,...(c=(l=n.parameters)==null?void 0:l.docs)==null?void 0:c.source}}};var b,m,d;r.parameters={...r.parameters,docs:{...(b=r.parameters)==null?void 0:b.docs,source:{originalSource:`{
+  args: {
+    tabs,
+    orientation: 'vertical'
+  }
+}`,...(d=(m=r.parameters)==null?void 0:m.docs)==null?void 0:d.source}}};const E=["Horizontal","Vertical"];export{n as Horizontal,r as Vertical,E as __namedExportsOrder,L as default};
