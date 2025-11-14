@@ -29,7 +29,9 @@ const config: StorybookConfig = {
       config.build = {
         ...config.build,
         assetsDir: 'assets',
-        modulePreload: false, // Critical: disables absolute URLs in module preload for GitHub Pages
+        modulePreload: {
+          polyfill: false,
+        },
         rollupOptions: {
           ...config.build?.rollupOptions,
           output: {
@@ -37,6 +39,7 @@ const config: StorybookConfig = {
             entryFileNames: 'assets/[name]-[hash].js',
             chunkFileNames: 'assets/[name]-[hash].js',
             assetFileNames: 'assets/[name]-[hash].[ext]',
+            manualChunks: undefined,
           },
         },
       }
