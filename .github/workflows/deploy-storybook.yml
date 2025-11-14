@@ -35,10 +35,17 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install --legacy-peer-deps  # More robust install
+
+      - name: Debug: List files
+        run: ls -la
 
       - name: Build Storybook
-        run: npm run build-storybook
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 5
+          max_attempts: 2
+          command: npm run build-storybook
 
       - name: Create .nojekyll
         run: touch storybook-static/.nojekyll
