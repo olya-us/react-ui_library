@@ -47,19 +47,6 @@ jobs:
           max_attempts: 2
           command: npm run build-storybook
 
-      - name: Fix underscore-prefixed helper chunk for GitHub Pages
-        run: |
-          if [ -d "storybook-static/assets" ]; then
-            cd storybook-static/assets
-            HELPER_FILE=$(ls _commonjsHelpers-*.js 2>/dev/null || true)
-            if [ -n "$HELPER_FILE" ]; then
-              NEW_NAME="${HELPER_FILE#_}"
-              mv "$HELPER_FILE" "$NEW_NAME"
-              # Обновляем все ссылки внутри JS-файлов
-              sed -i 's/_commonjsHelpers-/commonjsHelpers-/g' ./*.js
-            fi
-          fi
-
       - name: Create .nojekyll
         run: touch storybook-static/.nojekyll
 
