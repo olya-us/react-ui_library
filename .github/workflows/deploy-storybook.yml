@@ -11,7 +11,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
+  group: 'pages'
   cancel-in-progress: false
 
 jobs:
@@ -35,9 +35,9 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps  # More robust install
+        run: npm install --legacy-peer-deps # More robust install
 
-      - name: Debug: List files
+      - name: 'Debug: List files'
         run: ls -la
 
       - name: Build Storybook
